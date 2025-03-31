@@ -4,7 +4,6 @@ import com.ainetdinov.caloriemanagerspring.exception.NoSuchUserException;
 import com.ainetdinov.caloriemanagerspring.model.dto.MealDto;
 import com.ainetdinov.caloriemanagerspring.model.dto.UserDto;
 import com.ainetdinov.caloriemanagerspring.model.entity.Dish;
-import com.ainetdinov.caloriemanagerspring.model.entity.ExtendedReport;
 import com.ainetdinov.caloriemanagerspring.model.entity.Meal;
 import com.ainetdinov.caloriemanagerspring.model.entity.User;
 import com.ainetdinov.caloriemanagerspring.repository.DishRepository;
@@ -25,7 +24,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.verify;
 
 @SpringBootTest
 @ActiveProfiles("test")
