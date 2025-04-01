@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"John\",\r\n    \"mail\": \"john@doe.com\",\r\n    \"age\": 27,\r\n    \"sex\": \"MALE\",\r\n    \"weight\": 70,\r\n    \"height\": 182,\r\n    \"goal\": \"WEIGHT_GAIN\"\r\n}",
+					"raw": "{\r\n    \"name\": \"John\",\r\n    \"email\": \"john@doe.com\",\r\n    \"age\": 27,\r\n    \"sex\": \"MALE\",\r\n    \"weight\": 70,\r\n    \"height\": 182,\r\n    \"goal\": \"WEIGHT_GAIN\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
