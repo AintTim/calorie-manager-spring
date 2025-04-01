@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "30b67a41-e4c3-4a66-a36c-ff89e3a98b8a",
+		"name": "CalorieManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31870941"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"John\",\r\n    \"email\": \"john@doe.com\",\r\n    \"age\": 27,\r\n    \"sex\": \"MALE\",\r\n    \"weight\": 70,\r\n    \"height\": 182,\r\n    \"goal\": \"WEIGHT_GAIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createDish",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Chocolate Cheesecake\",\r\n    \"calories\": 350,\r\n    \"proteins\": 15,\r\n    \"fats\": 20,\r\n    \"carbs\": 50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/dishes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"dishes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createMeal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[1, 2]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/meals?userId=1&date=2025-04-01",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"meals"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "date",
+							"value": "2025-04-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDailyReport",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/reports/2?date=2025-04-01",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"reports",
+						"2"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2025-04-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/users/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getHistory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/reports/history/1?end=2025-04-02",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"reports",
+						"history",
+						"1"
+					],
+					"query": [
+						{
+							"key": "end",
+							"value": "2025-04-02"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkLimit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/reports/check-limit/1?date=2025-04-01",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"reports",
+						"check-limit",
+						"1"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2025-04-01"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		}
+	]
+}

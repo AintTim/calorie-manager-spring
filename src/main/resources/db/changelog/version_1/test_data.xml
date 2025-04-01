@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1743361867365-1" author="Timur Ainetdinov">
+        <createSequence incrementBy="1" sequenceName="dishes_id_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1743361867365-2" author="Timur Ainetdinov">
+        <createSequence incrementBy="1" sequenceName="meals_id_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1743361867365-3" author="Timur Ainetdinov">
+        <createSequence incrementBy="1" sequenceName="users_id_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1743361867365-4" author="Timur Ainetdinov">
+        <createTable tableName="dishes">
+            <column name="calories" type="DOUBLE precision"/>
+            <column name="carbs" type="DOUBLE precision"/>
+            <column name="fats" type="DOUBLE precision"/>
+            <column name="proteins" type="DOUBLE precision"/>
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="dishes_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1743361867365-5" author="Timur Ainetdinov">
+        <createTable tableName="meal_to_dish">
+            <column name="dish_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="meal_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1743361867365-6" author="Timur Ainetdinov">
+        <createTable tableName="meals">
+            <column name="calories" type="DOUBLE precision"/>
+            <column name="date" type="date"/>
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="meals_pkey"/>
+            </column>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1743361867365-7" author="Timur Ainetdinov">
+        <createTable tableName="users">
+            <column name="age" type="INT"/>
+            <column name="daily_calories" type="DOUBLE precision"/>
+            <column name="height" type="DOUBLE precision"/>
+            <column name="weight" type="DOUBLE precision"/>
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="users_pkey"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="goal" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sex" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1743361867365-8" author="Timur Ainetdinov">
+        <addUniqueConstraint columnNames="name" constraintName="dishes_name_key" tableName="dishes"/>
+    </changeSet>
+    <changeSet id="1743361867365-9" author="Timur Ainetdinov">
+        <addUniqueConstraint columnNames="email" constraintName="users_email_key" tableName="users"/>
+    </changeSet>
+    <changeSet id="1743361867365-10" author="Timur Ainetdinov">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="meals"
+                                 constraintName="fk677c66qpjr7234luomahc1ale" onDelete="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="users"/>
+    </changeSet>
+    <changeSet id="1743361867365-11" author="Timur Ainetdinov">
+        <addForeignKeyConstraint baseColumnNames="meal_id" baseTableName="meal_to_dish"
+                                 constraintName="fkalk7hn3xs8qcnsb2w4p7gcpmu" onDelete="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="meals"/>
+    </changeSet>
+    <changeSet id="1743361867365-12" author="Timur Ainetdinov">
+        <addForeignKeyConstraint baseColumnNames="dish_id" baseTableName="meal_to_dish"
+                                 constraintName="fknxowe3f4xwja6byj4fop3jqfo" onDelete="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="dishes"/>
+    </changeSet>
+</databaseChangeLog>
