@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "users")
-public class User implements Source{
+public class User implements Source {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,11 +21,14 @@ public class User implements Source{
     @Email
     @Column(unique = true, nullable = false)
     private String email;
-    @Min(1) @Max(100)
+    @Min(1)
+    @Max(100)
     private Integer age;
-    @Min(5) @Max(250)
+    @Min(5)
+    @Max(250)
     private Double weight;
-    @Min(40) @Max(250)
+    @Min(40)
+    @Max(250)
     private Double height;
     @Enumerated(EnumType.STRING)
     private Sex sex;

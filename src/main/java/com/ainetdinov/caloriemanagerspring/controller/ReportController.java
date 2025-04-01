@@ -2,7 +2,6 @@ package com.ainetdinov.caloriemanagerspring.controller;
 
 import com.ainetdinov.caloriemanagerspring.exception.InvalidDateBoundaryException;
 import com.ainetdinov.caloriemanagerspring.exception.NoSuchUserException;
-import com.ainetdinov.caloriemanagerspring.model.dto.UserDto;
 import com.ainetdinov.caloriemanagerspring.model.entity.DailyReport;
 import com.ainetdinov.caloriemanagerspring.model.entity.ExtendedReport;
 import com.ainetdinov.caloriemanagerspring.service.MealService;

@@ -59,7 +59,7 @@ class UserServiceTest extends BaseTest {
     }
 
 
-        private double calculateBMR(User user) {
+    private double calculateBMR(User user) {
         Sex sex = user.getSex();
         double calories = sex.getRatio() + (sex.getWeight() * user.getWeight()) + (sex.getHeight() * user.getHeight()) - (sex.getAge() * user.getAge());
         return user.getGoal().getRatio() * calories;

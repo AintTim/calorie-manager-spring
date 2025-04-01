@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "dishes")
-public class Dish implements Source{
+public class Dish implements Source {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
